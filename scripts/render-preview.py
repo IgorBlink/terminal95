@@ -19,7 +19,7 @@ def main():
         size=32,
         layout_engine=ImageFont.Layout.BASIC,
     )
-    canvas = Image.new("RGB", (960, 416), palette["background"])
+    canvas = Image.new("RGB", (960, 480), palette["background"])
     draw = ImageDraw.Draw(canvas)
     foreground = palette["foreground"]
 
@@ -32,9 +32,10 @@ def main():
     row(76, "> ls", selected=True)
     row(140, "README.md  themes/  assets/  scripts/")
     row(220, "> codex95", selected=True)
-    row(284, "> What would you like to build?")
-    row(364, "> ", selected=True)
-    draw.rectangle((48, 364, 63, 395), fill=foreground)
+    row(284, "> Hey Codex", selected=True)
+    row(348, "> Hey! What are we building today?")
+    row(428, "> ", selected=True)
+    draw.rectangle((48, 428, 63, 459), fill=foreground)
 
     output = root / "docs/terminal95-preview.png"
     output.parent.mkdir(parents=True, exist_ok=True)
