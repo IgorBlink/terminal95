@@ -76,7 +76,7 @@ codex95
 >
 ```
 
-The chat runs in the same terminal and working folder. Replies stream, with a small animated `> ...` indicator while waiting. Reopening resumes the previous conversation without printing its old messages again.
+The chat runs in the same terminal and working folder. Markdown headings, emphasis, lists, links, tables, and code render in the same simple monochrome style. Completed blocks appear as they arrive, with a small animated `> ...` indicator until the first visible text. Redirected output keeps the original Markdown. Reopening resumes the previous conversation without printing its old messages again.
 
 | Key or command | Action |
 | --- | --- |

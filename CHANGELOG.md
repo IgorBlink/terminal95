@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1 (2026-11-09)
+
+- Render Markdown in terminal replies and assistant history, including headings, emphasis, lists, links, tables, and code.
+- Keep the simple gray prompt and waiting indicator while unfinished Markdown blocks arrive; preserve literal input and redirected Markdown.
+
 ## 0.1.0 (2026-11-09)
 
 - Apply a gray Windows 95-inspired style with the bundled pixel font and classic PC colors.

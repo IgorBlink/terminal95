@@ -112,11 +112,11 @@ async def test_tty_indicator_animates_one_line_and_cannot_overwrite_reply(monkey
     task = writer._thinking_task
     assert task is None or task.done()
     writer.write("the reply")
+    writer.end_answer()
     completed_output = stream.getvalue()
     await asyncio.sleep(0.03)
     assert stream.getvalue() == completed_output
-    assert completed_output.endswith("the reply")
-    writer.end_answer()
+    assert completed_output.rstrip().endswith("the reply")
 
 
 async def test_redirected_output_has_no_indicator_or_terminal_controls(monkeypatch):

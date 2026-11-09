@@ -1,6 +1,6 @@
 [project]
 name = "codex95"
-version = "0.1.0"
+version = "0.1.1"
 description = "A minimal gray terminal prompt for the official Codex CLI"
 readme = "README.md"
 license = "MIT"
@@ -8,8 +8,10 @@ license-files = ["LICENSE"]
 authors = [{name = "Terminal95 contributors"}]
 requires-python = ">=3.11"
 dependencies = [
+    "markdown-it-py>=4,<5",
     "platformdirs>=4,<5",
     "prompt-toolkit>=3.0,<4",
+    "rich>=14,<15",
 ]
 
 [project.scripts]
