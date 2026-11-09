@@ -1,0 +1,21 @@
+PxPlus IBM VGA 8x16
+
+Unmodified font by VileR, from The Ultimate Oldschool PC Font Pack v2.2.
+Copyright information and font names are preserved in the font itself.
+Licensed under Creative Commons Attribution-ShareAlike 4.0 International.
+Full license: LICENSE-OldschoolPCFonts.txt
+License URL: https://creativecommons.org/licenses/by-sa/4.0/
+
+Official project: https://int10h.org/oldschool-pc-fonts/
+Documentation: https://int10h.org/oldschool-pc-fonts/readme/
+Download: https://int10h.org/oldschool-pc-fonts/download/oldschool_pc_font_pack_v2.2_win.zip
+Archive published MD5 (verified): 2e7738145d6328fcde6245efde7c23c8
+Archive member: ttf - Px (pixel outline)/PxPlus_IBM_VGA_8x16.ttf
+
+This font uses square pixel outlines based on an 8-by-16 grid. The Plus
+character set includes Latin, Cyrillic, Greek and Hebrew. The family name
+to select in a terminal is exactly: PxPlus IBM VGA 8x16
+
+For a crisp bitmap appearance, render at integer multiples of 16 physical
+pixels tall. On a typical 2x macOS display, a 16-point em corresponds to
+32 physical pixels. Display scaling and terminal metrics can affect this.

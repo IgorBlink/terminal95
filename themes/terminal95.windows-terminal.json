@@ -1,0 +1,39 @@
+{
+  "schemes": [
+    {
+      "name": "Terminal95",
+      "background": "#cccccc",
+      "foreground": "#000000",
+      "cursorColor": "#000000",
+      "selectionBackground": "#aaaaaa",
+      "black": "#000000",
+      "red": "#800000",
+      "green": "#008000",
+      "yellow": "#808000",
+      "blue": "#000080",
+      "purple": "#800080",
+      "cyan": "#008080",
+      "white": "#c0c0c0",
+      "brightBlack": "#808080",
+      "brightRed": "#ff0000",
+      "brightGreen": "#00ff00",
+      "brightYellow": "#ffff00",
+      "brightBlue": "#0000ff",
+      "brightPurple": "#ff00ff",
+      "brightCyan": "#00ffff",
+      "brightWhite": "#ffffff"
+    }
+  ],
+  "profiles": {
+    "defaults": {
+      "colorScheme": "Terminal95",
+      "font": {
+        "face": "PxPlus IBM VGA 8x16",
+        "size": 16,
+        "weight": "normal"
+      },
+      "cursorShape": "filledBox",
+      "opacity": 100
+    }
+  }
+}

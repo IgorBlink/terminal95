@@ -1,0 +1,45 @@
+[project]
+name = "codex95"
+version = "0.1.0"
+description = "A minimal gray terminal prompt for the official Codex CLI"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "Terminal95 contributors"}]
+requires-python = ">=3.11"
+dependencies = [
+    "platformdirs>=4,<5",
+    "prompt-toolkit>=3.0,<4",
+]
+
+[project.scripts]
+codex95 = "codex95.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/IgorBlink/terminal95"
+Repository = "https://github.com/IgorBlink/terminal95"
+Issues = "https://github.com/IgorBlink/terminal95/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["codex95"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/codex95", "/tests", "/themes", "/scripts", "/assets", "/docs",
+    "/README.md", "/LICENSE", "/CHANGELOG.md", "/CONTRIBUTING.md", "/SECURITY.md",
+    "/pyproject.toml", "/uv.lock", "/codex95.sh",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "pytest-asyncio>=1.4.1.post1",
+]

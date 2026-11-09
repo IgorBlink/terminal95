@@ -1,0 +1,57 @@
+# Terminal95: import this file from [general].import in alacritty.toml.
+[font]
+size = 16.0
+
+[font.normal]
+family = "PxPlus IBM VGA 8x16"
+style = "Regular"
+
+[font.bold]
+family = "PxPlus IBM VGA 8x16"
+style = "Regular"
+
+[font.italic]
+family = "PxPlus IBM VGA 8x16"
+style = "Regular"
+
+[font.bold_italic]
+family = "PxPlus IBM VGA 8x16"
+style = "Regular"
+
+[window]
+opacity = 1.0
+
+[cursor]
+style = { shape = "Block", blinking = "Never" }
+
+[colors.primary]
+background = "#cccccc"
+foreground = "#000000"
+
+[colors.cursor]
+text = "#cccccc"
+cursor = "#000000"
+
+[colors.selection]
+text = "#000000"
+background = "#aaaaaa"
+
+[colors.normal]
+black = "#000000"
+red = "#800000"
+green = "#008000"
+yellow = "#808000"
+blue = "#000080"
+magenta = "#800080"
+cyan = "#008080"
+white = "#c0c0c0"
+
+[colors.bright]
+black = "#808080"
+red = "#ff0000"
+green = "#00ff00"
+yellow = "#ffff00"
+blue = "#0000ff"
+magenta = "#ff00ff"
+cyan = "#00ffff"
+white = "#ffffff"

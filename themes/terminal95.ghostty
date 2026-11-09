@@ -1,0 +1,33 @@
+# Terminal95: appearance only. Merge or include in your Ghostty config.
+font-family = PxPlus IBM VGA 8x16
+font-size = 16
+font-thicken = false
+font-synthetic-style = false
+font-feature = -calt,-liga,-dlig
+background = cccccc
+foreground = 000000
+background-opacity = 1
+selection-background = aaaaaa
+selection-foreground = 000000
+cursor-color = 000000
+cursor-text = cccccc
+cursor-style = block
+cursor-style-blink = false
+window-theme = light
+
+palette = 0=#000000
+palette = 1=#800000
+palette = 2=#008000
+palette = 3=#808000
+palette = 4=#000080
+palette = 5=#800080
+palette = 6=#008080
+palette = 7=#c0c0c0
+palette = 8=#808080
+palette = 9=#ff0000
+palette = 10=#00ff00
+palette = 11=#ffff00
+palette = 12=#0000ff
+palette = 13=#ff00ff
+palette = 14=#00ffff
+palette = 15=#ffffff

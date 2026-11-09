@@ -1,0 +1,31 @@
+{
+  "name": "Terminal95",
+  "font": {
+    "family": "PxPlus IBM VGA 8x16",
+    "size": 16
+  },
+  "background": "#cccccc",
+  "foreground": "#000000",
+  "cursor": "#000000",
+  "cursor_text": "#cccccc",
+  "selection_background": "#aaaaaa",
+  "selection_foreground": "#000000",
+  "ansi": [
+    "#000000",
+    "#800000",
+    "#008000",
+    "#808000",
+    "#000080",
+    "#800080",
+    "#008080",
+    "#c0c0c0",
+    "#808080",
+    "#ff0000",
+    "#00ff00",
+    "#ffff00",
+    "#0000ff",
+    "#ff00ff",
+    "#00ffff",
+    "#ffffff"
+  ]
+}
