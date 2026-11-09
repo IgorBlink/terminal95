@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import asyncio
 import os
+import shutil
 import signal
 import sys
 from pathlib import Path
@@ -15,6 +16,7 @@ from prompt_toolkit.lexers import SimpleLexer
 from prompt_toolkit.styles import Style
 
 from .backend import CodexClient, ProtocolError
+from .markdown import MarkdownStream
 from .state import State
 
 
@@ -59,6 +61,7 @@ class NativeWriter:
     GRAY = "\x1b[38;2;0;0;0m\x1b[48;2;204;204;204m"
     USER_GRAY = "\x1b[38;2;0;0;0m\x1b[48;2;170;170;170m"
     THINK_INTERVAL = 0.35
+    manages_thinking = True
 
     def __init__(self, stream=None):
         self.stream = stream or sys.stdout
@@ -66,15 +69,20 @@ class NativeWriter:
         self.open = False
         self._thinking_task = None
         self._thinking_visible = False
+        self._markdown = None
 
     def _print(self, text):
         self.stream.write(text)
         self.stream.flush()
 
-    def begin_answer(self, *, user=False):
+    def begin_answer(self, *, user=False, markdown=True):
         if self.open:
             self.end_answer()
         self.open = True
+        self._markdown = (
+            MarkdownStream(width=max(10, shutil.get_terminal_size().columns - 2), color=self.color)
+            if markdown and not user and self.stream.isatty() else None
+        )
         shade = self.USER_GRAY if user else self.GRAY
         self._print((shade if self.color else "") + "> ")
 
@@ -120,10 +128,23 @@ class NativeWriter:
         if not self.open:
             self.begin_answer()
         value = safe_text(text)
+        if self._markdown is not None:
+            value = self._markdown.feed(value)
+        self._write_visible(value)
+
+    def _write_visible(self, value):
+        if not value:
+            return
+        if self._thinking_task is not None:
+            self._thinking_task.cancel()
+        self._clear_thinking()
         continuation = "\x1b[K\n  " if self.color else "\n  "
         self._print(value.replace("\n", continuation))
 
     def end_answer(self):
+        if self._markdown is not None:
+            self._write_visible(self._markdown.finish())
+            self._markdown = None
         if self._thinking_task is not None:
             self._thinking_task.cancel()
         self._clear_thinking()
@@ -132,7 +153,7 @@ class NativeWriter:
             self.open = False
 
     def message(self, role, text):
-        self.begin_answer(user=role == "user")
+        self.begin_answer(user=role == "user", markdown=role == "assistant")
         self.write(text)
         self.end_answer()
 
@@ -233,7 +254,8 @@ class TerminalChat:
                     delta = params.get("delta", "")
                     if not delta:
                         continue
-                    await self.writer.stop_thinking()
+                    if not getattr(self.writer, "manages_thinking", False):
+                        await self.writer.stop_thinking()
                     item_id = params["itemId"]
                     if displayed_item is not None and item_id != displayed_item:
                         self.writer.end_answer()
@@ -245,7 +267,7 @@ class TerminalChat:
                 elif method == "item/completed" and params.get("item", {}).get("type") == "agentMessage":
                     item = params["item"]
                     item_id, final = item["id"], item.get("text", "")
-                    if final:
+                    if final and not getattr(self.writer, "manages_thinking", False):
                         await self.writer.stop_thinking()
                     previous = streamed.get(item_id, "")
                     if displayed_item is not None and item_id != displayed_item:
