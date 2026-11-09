@@ -2,7 +2,11 @@
 
 A Windows 95-inspired terminal style: a gray background, black text, and a pixel console font. Use it with your usual shell and tools. A minimal Codex chat is included as an optional extra.
 
-![Terminal95 rendered preview: black pixel text and a simple prompt on a gray terminal background](docs/terminal95-preview.png)
+**Free and open source.** Download and use the style without an account, subscription, or license key.
+
+**[Download the theme and font — ZIP](https://github.com/IgorBlink/terminal95/releases/latest/download/terminal95-theme.zip)**
+
+![Terminal95 rendered preview: a gray terminal with black pixel text, Hey Codex, and a short reply](docs/terminal95-preview.png)
 
 *Rendered preview using the bundled font and theme.*
 
@@ -52,6 +56,8 @@ This uses terminal escape sequences to change the current terminal's colors. It 
 ## Optional: a minimal Codex chat
 
 The style works without Python, Codex, or an OpenAI account. The optional `codex95` command provides a small chat using an installed, authenticated [Codex CLI](https://learn.chatgpt.com/docs/codex/cli).
+
+The chat client is free too. The optional Codex connection uses your own account and is subject to [OpenAI's access, usage limits, and pricing](https://learn.chatgpt.com/docs/pricing).
 
 On macOS or Linux, with Python 3.11+ and [uv](https://docs.astral.sh/uv/), install it from this repository:
 
